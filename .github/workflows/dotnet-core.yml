@@ -26,6 +26,6 @@ jobs:
     - name: Publish
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run:
+      run: |
         dotnet pack --configuration Release
         dotnet nuget push bin/Release/*.nupkg --source github
