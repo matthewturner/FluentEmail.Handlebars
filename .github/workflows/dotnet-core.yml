@@ -29,7 +29,7 @@ jobs:
     - name: publish
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
-        nupkg-path:  './bin/Release/*.nupkg'
+        nupkg-path:  'src/FluentEmail.Handlebars/bin/Release/*.nupkg'
         repo-owner:  'matthewturner'
         gh-user:  'matthewturner'
         token:  ${{ secrets.GITHUB_TOKEN }}
