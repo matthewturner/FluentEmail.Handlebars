@@ -25,7 +25,7 @@ jobs:
       run: dotnet test --no-restore
     - name: Publish
       env:
-        GITHUB_TOKEN: {{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       run:
         dotnet pack --configuration Release
-        dotnet nuget push "bin/Release/FluentEmail.Handlebars.1.0.0.nupkg" --source "github"
+        dotnet nuget push bin/Release/*.nupkg --source github
