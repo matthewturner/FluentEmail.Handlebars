@@ -23,9 +23,13 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore
-    - name: Publish
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      run: |
+    - name: Pack
+      run:
         dotnet pack --configuration Release
-        dotnet nuget push bin/Release/*.nupkg --source github
+    - name: publish
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        nupkg-path:  './bin/Release/*.nupkg'
+        repo-owner:  'matthewturner'
+        gh-user:  'matthewturner'
+        token:  ${{ secrets.GITHUB_TOKEN }}
