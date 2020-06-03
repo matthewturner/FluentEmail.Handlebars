@@ -26,7 +26,7 @@ jobs:
     - name: Pack
       run:
         dotnet pack --configuration Release
-    - name: publish
+    - name: Publish
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
         nupkg-path:  'src/FluentEmail.Handlebars/bin/Release/*.nupkg'
